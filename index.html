@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src='Win7ChineseFont.js'></script>
+</head>
+
+<body>
+  <script>
+  var temp = '';
+  var charString = [];
+  var UnicodeOrderByStroke = [];
+  for (var i = 0; i <= 48; i++) {
+    var charString = charStroke[i].split('');
+    for (var j = 0; j < charString.length; j++) {
+      temp += charString[j].charCodeAt(0).toString(16).toUpperCase() + ",";
+    }
+    UnicodeOrderByStroke.push(temp);
+    temp = '';
+  }
+  var output = [];
+  for (var i = 1; i <= UnicodeOrderByStroke.length - 1; i++) {
+    document.write(i + "劃<br>");
+    for (var j = 0; j <= charStroke[i].length - 1; j++) {
+      document.write(charStroke[i].split('')[j] + '\t' + UnicodeOrderByStroke[i].split(',')[j] + '<br>');
+    }
+    document.write('<hr>');
+  }
+  </script>
+</body>
+</html>
